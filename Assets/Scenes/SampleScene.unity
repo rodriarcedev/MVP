@@ -1993,13 +1993,12 @@ GameObject:
   - component: {fileID: 1461991539}
   - component: {fileID: 1461991542}
   - component: {fileID: 1461991541}
-  - component: {fileID: 1461991544}
-  - component: {fileID: 1461991543}
   - component: {fileID: 1461991545}
   - component: {fileID: 1461991546}
   - component: {fileID: 1461991548}
   - component: {fileID: 1461991549}
   - component: {fileID: 1461991550}
+  - component: {fileID: 1461991551}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2128,57 +2127,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.99, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &1461991543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461991538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cc69faf3105a9447b32cf5d90e1ff56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speedPlayer: 10
-  xLimits: {x: -2, y: 2}
-  yLimits: {x: -4.3, y: 4.3}
---- !u!114 &1461991544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1461991538}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d9b4622ac8341040ac403996a8bb256, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActionPlayer:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Input Action Player
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 4573e249-95d1-46ff-9581-2f5ee1446789
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 1215683968280250082, guid: 5a06b579eda0e5e409d603781b7d6479, type: 3}
-  leftButtonInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Left Button Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 6793713b-13cc-4620-80f3-4d9f5f98deec
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: 3802734250451807668, guid: 5a06b579eda0e5e409d603781b7d6479, type: 3}
 --- !u!50 &1461991545
 Rigidbody2D:
   serializedVersion: 4
@@ -2255,6 +2203,45 @@ MonoBehaviour:
   health: 100
   panelEndGame: {fileID: 1821321695}
   healthPlayerValue: {fileID: 706753165}
+--- !u!114 &1461991551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461991538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ba1d282be78024db7cc007e16699cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xLimits: {x: -2, y: 2}
+  yLimits: {x: -4.3, y: 4.3}
+  speedPlayer: 10
+  inputActionPlayer:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Input Action Player
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 338148ee-72a8-4b89-92e1-8a6083404e4b
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 1215683968280250082, guid: 5a06b579eda0e5e409d603781b7d6479, type: 3}
+  leftButtonInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Button Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 58b7065a-d073-4661-ab8e-a46999ba276d
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 3802734250451807668, guid: 5a06b579eda0e5e409d603781b7d6479, type: 3}
 --- !u!1 &1476918949
 GameObject:
   m_ObjectHideFlags: 0

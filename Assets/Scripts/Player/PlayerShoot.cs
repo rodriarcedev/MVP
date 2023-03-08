@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
     void Start()
     {
         playerInput = GetComponent<PlayerInput>();
-        playerInput.PressButtonAction += () => { GetComponent<IBulletData>().ShootBullet();};
+        //playerInput.PressButtonAction += () => { GetComponent<IBulletData>().ShootBullet();};
     }
 
     //private void CreateProjectile()

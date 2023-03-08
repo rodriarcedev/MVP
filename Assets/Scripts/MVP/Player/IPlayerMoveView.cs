@@ -5,10 +5,27 @@ using UnityEngine.InputSystem;
 
 public interface IPlayerMoveView 
 {
+    public Vector2 XLimits
+    {
+        get;
+        set;
+    }
+    public Vector2 YLimits
+    {
+        get;
+        set;
+    }
+    public float SpeedPlayer
+    {
+        get;
+        set;
+    }
+
     Vector2 InputPlayer
     {
         get;
         set;
     }
-    void OnPressedButton(InputAction.CallbackContext context);
+    void MovePlayerToPosition();
+    
 }
