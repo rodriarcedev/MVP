@@ -25,7 +25,7 @@ public class QuestionsView : MonoBehaviour, IQuestionsView
     public Button GetNextQuestion { get; set; }
 
 
-    private QuestionsPresenter questionPresenter;
+    private QuestionsController questionController;
 
 
 
@@ -47,16 +47,16 @@ public class QuestionsView : MonoBehaviour, IQuestionsView
         Debug.Log(questions.options[0]);
         
         firstOption.GetComponentInChildren<TextMeshProUGUI>().text = questions.options[0];
-        firstOption.onClick.AddListener(() => questionPresenter.GetAnswer(questions.options[0]));
+        firstOption.onClick.AddListener(() => questionController.GetAnswer(questions.options[0]));
 
 
         secondOption.GetComponentInChildren<TextMeshProUGUI>().text = questions.options[1];
 
-        secondOption.onClick.AddListener(() => questionPresenter.GetAnswer(questions.options[1]));
+        secondOption.onClick.AddListener(() => questionController.GetAnswer(questions.options[1]));
 
 
         thirdOption.GetComponentInChildren<TextMeshProUGUI>().text = questions.options[2];
-        thirdOption.onClick.AddListener(() => questionPresenter.GetAnswer(questions.options[2]));
+        thirdOption.onClick.AddListener(() => questionController.GetAnswer(questions.options[2]));
 
         GetNextQuestion.onClick.AddListener(() => OnGetNextQuestion());
 
@@ -68,8 +68,16 @@ public class QuestionsView : MonoBehaviour, IQuestionsView
     void Start()
     {
         var model = new QuestionsModel();
-        questionPresenter = new QuestionsPresenter(this, model);
-        questionPresenter.GetDataQuestion();
+
+        model.OnSetQuestionData += OnSetdataQuestions; // Subscribe view Methods to model changes
+        model.OnGetAnswer += OnPressButtonSetAnswer;
+
+
+        questionController = new QuestionsController(this, model);
+        
+
+
+        questionController.GetDataQuestion();
 
 
 
@@ -104,8 +112,8 @@ public class QuestionsView : MonoBehaviour, IQuestionsView
     {
         panelResult.SetActive(false);
 
-        questionPresenter.UpdateQuestionIndex();
+        questionController.UpdateQuestionIndex();
 
-        questionPresenter.GetDataQuestion();
+        questionController.GetDataQuestion();
     }
 }

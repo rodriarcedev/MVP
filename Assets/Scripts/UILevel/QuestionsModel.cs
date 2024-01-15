@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,12 @@ public class QuestionsData
 
 public class QuestionsModel 
 {
+
+
+    public Action<QuestionsData> OnSetQuestionData;
+    public Action<bool> OnGetAnswer;
+    public Action OnGetCorrectAnswer;
+
 
     public List<QuestionsData> questions = new List<QuestionsData>()
     {
@@ -69,6 +76,31 @@ public class QuestionsModel
     };
 
     public int currentQuestion;
+
+
+    public void SetDataQuestions()
+    {
+        var questionsData = questions[currentQuestion];
+        OnSetQuestionData.Invoke(questionsData);
+    }
+
+    public void GetAnswer(string answer)
+    {
+        bool result = false;
+        if (questions[currentQuestion].correctAnswer == answer)
+        {
+            result = true;
+        }
+        else
+        {
+            result = false;
+        }
+        OnGetAnswer.Invoke(result); 
+
+
+
+
+    }
  
 
    
